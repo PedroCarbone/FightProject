@@ -181,10 +181,10 @@ TextureImporter:
     second: fall_03
   - first:
       213: 8165074966024551832
-    second: Enemy_59
+    second: fall_04
   - first:
       213: -2605947397949779376
-    second: Enemy_60
+    second: fall_05
   - first:
       213: -1428175750162117489
     second: Enemy_61
@@ -1570,7 +1570,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_59
+      name: fall_04
       rect:
         serializedVersion: 2
         x: 250
@@ -1591,7 +1591,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_60
+      name: fall_05
       rect:
         serializedVersion: 2
         x: 327
