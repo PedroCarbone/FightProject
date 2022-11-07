@@ -12,7 +12,7 @@ public class CombateEnemigo : MonoBehaviour
 
     private Animator animator;
 
-    private void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
     }
@@ -22,5 +22,23 @@ public class CombateEnemigo : MonoBehaviour
         {
             tiempoSiguienteAtaque -= Time.deltaTime;
         }
+    }
+
+    public void Ataque()
+    {
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorAtaque.position, radioAtaque);
+        foreach (Collider2D colisionador in objetos)
+        {
+            if (colisionador.CompareTag("Player"))
+            {
+                colisionador.transform.GetComponent<PlayerController>().TomarDaño(dañoAtaque);
+            }
+        }
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(controladorAtaque.position, radioAtaque);
     }
 }

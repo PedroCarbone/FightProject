@@ -12,11 +12,11 @@ public class Combate : MonoBehaviour
 
     private Animator animator;
 
-    private void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
     }
-    private void Update()
+    public void Update()
     {
         if (tiempoSiguienteAtaque > 0)
         {
@@ -44,7 +44,7 @@ public class Combate : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(controladorAtaque.position, radioAtaque);
