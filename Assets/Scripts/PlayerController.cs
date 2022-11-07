@@ -7,16 +7,18 @@ public class PlayerController : MonoBehaviour
     private float movimientoHorizontal = 0f;
     [SerializeField] private float velocidadDeMovimiento;
     [SerializeField] private float suavizadoDeMovimiento;
+    [SerializeField] private float vida;
 
     public Rigidbody2D rb2D;
     private Vector3 velocidad = Vector3.zero;
     private bool mirandoDerecha = true;
     private Animator animator;
-
-    public void Start()
+    
+   public void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        vida = 400;
     }
 
     public void Update()
@@ -29,6 +31,16 @@ public class PlayerController : MonoBehaviour
     {
         //Mover
         Mover(movimientoHorizontal * Time.fixedDeltaTime);
+    }
+
+    public void TomarDaño(float daño)
+    {
+        vida -= daño;
+
+        if (vida <= 0)
+        {
+            animator.SetTrigger("Death");
+        }
     }
 
     private void Mover(float mover)
@@ -54,4 +66,10 @@ public class PlayerController : MonoBehaviour
         escala.x *= -1;
         transform.localScale = escala;
     }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
+
 }

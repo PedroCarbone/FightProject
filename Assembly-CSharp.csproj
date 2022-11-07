@@ -53,13 +53,12 @@
     <UnityVersion>2020.3.27f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\CombateEnemigo.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Combate.cs" />
     <Compile Include="Assets\Scripts\Enemigo.cs" />
     <Compile Include="Assets\Scripts\Soldado.cs" />
-    <Compile Include="Assets\EnemyBehaviour.cs" />
-    <Compile Include="Assets\EnemyAttack.cs" />
-    <Compile Include="Assets\Combate.cs" />
-    <Compile Include="Assets\CombateEnemigo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
