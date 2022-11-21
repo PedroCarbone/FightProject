@@ -5,14 +5,16 @@ using UnityEngine;
 public class Enemigo : MonoBehaviour
 {
     [SerializeField] private float vida;
+    [SerializeField] private float vidaMax;
     [SerializeField] private float distancia;
+    [SerializeField] private BarraVidaEnemigo barraDeVida;
+    
     public Rigidbody2D rb2D;
     public Transform jugador;
     public Vector3 puntoInicial;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private bool mirandoIzquierda = true;
-    private EnemyBehaviour EnemyBehaviour;
+
 
     public void Start()
     {
@@ -21,6 +23,8 @@ public class Enemigo : MonoBehaviour
         puntoInicial = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        vida = vidaMax;
+        barraDeVida.StartBarraDeVida(vida);
     }
 
     public void Update()
@@ -41,9 +45,10 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    public void TomarDaño(float daño)
+    public void TomarDanio(float danioAtaque)
     {
-        vida -= daño;
+        vida -= danioAtaque;
+        barraDeVida.CambiarVidaActual(vida);
         animator.SetTrigger("Hit");
    
         if (vida <= 0)

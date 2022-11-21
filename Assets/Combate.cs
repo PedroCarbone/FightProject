@@ -6,7 +6,7 @@ public class Combate : MonoBehaviour
 {
     [SerializeField] private Transform controladorAtaque;
     [SerializeField] private float radioAtaque;
-    [SerializeField] private float dañoAtaque;
+    [SerializeField] private float danioAtaque;
     [SerializeField] private float tiempoEntreAtaques;
     [SerializeField] private float tiempoSiguienteAtaque;
 
@@ -40,7 +40,7 @@ public class Combate : MonoBehaviour
         {
             if (colisionador.CompareTag("Enemigo"))
             {
-                colisionador.transform.GetComponent<Enemigo>().TomarDaño(dañoAtaque);
+                colisionador.transform.GetComponent<Enemigo>().TomarDanio(danioAtaque);
             }
         }
     }

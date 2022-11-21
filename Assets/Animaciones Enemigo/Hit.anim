@@ -73,7 +73,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: "TomarDa\xF1o"
+    functionName: TomarDanio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

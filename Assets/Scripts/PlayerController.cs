@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float velocidadDeMovimiento;
     [SerializeField] private float suavizadoDeMovimiento;
     [SerializeField] private float vida;
-
+    [SerializeField] private float vidaMax;
+    [SerializeField] private BarraVida barraDeVida;
     public Rigidbody2D rb2D;
     private Vector3 velocidad = Vector3.zero;
     private bool mirandoDerecha = true;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        vida = vidaMax;
+        barraDeVida.StartBarraDeVida(vida);
     }
 
     public void Update()
@@ -32,9 +35,10 @@ public class PlayerController : MonoBehaviour
         Mover(movimientoHorizontal * Time.fixedDeltaTime);
     }
 
-    public void TomarDaño(float daño)
+    public void TomarDanio(float danioAtaque)
     {
-        vida -= daño;
+        vida -= danioAtaque;
+        barraDeVida.CambiarVidaActual(vida);
         animator.SetTrigger("Hit");
 
         if (vida <= 0)
