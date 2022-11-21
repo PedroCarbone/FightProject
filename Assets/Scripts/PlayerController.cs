@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        vida = 400;
     }
 
     public void Update()
@@ -36,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public void TomarDaño(float daño)
     {
         vida -= daño;
+        animator.SetTrigger("Hit");
 
         if (vida <= 0)
         {
